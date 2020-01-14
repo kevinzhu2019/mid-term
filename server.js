@@ -42,12 +42,34 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
+//below function returns the menu:
+// const menuFromMainPage = function() {
+//   return db.query('SELECT id, name, price FROM lightmenus;')
+//   .then((result) => {
+//     return result.rows;
+//   });
+// }
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  // let menuPrices = menuFromMainPage();
+  // console.log(menuPrices);
+  // console.log('hello');
+  // let templateVars = {menu: menuPrices};
+  let queryString = 'SELECT id, name, price, cook_time FROM lightmenus;';
+  db.query(queryString)
+  .then((result) => {
+    console.log(result.rows);
+    let templateVars = {menuItems: result.rows};
+    res.render("index", templateVars);
+  })
+  // res.render("index");
+});
+
+app.get("/order", (req, res) => {
+  res.render("order_now.ejs");
 });
 
 app.listen(PORT, () => {
