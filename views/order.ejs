@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/order.css" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/quantity.js"></script>
+  <title>Lighthouse Noodle Co.</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+              <ul>
+                  <div class="logo-box">
+                      <img class=logo-image src="./assets/lighthouse.svg" alt="">
+                      <p>Lighthouse Noodle Co.</p>
+                  </div>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/#menu">Menu</a></li>
+                  <li><a href="Order">Order Now</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+        </nav>
+      </header>
+  <section class="order-food-interface">
+    <p class="order-title">Order Now</p>
+    <p class="order-section-title-noodles">Noodles</p>
+    <div class="noodles-ordering">
+      <div class="food-item">
+        <img src="./assets/kisspng-bn-b-hu-oyster-vermicelli-pho-chinese-noodl-5b2b87f8c79f08.3969496415295795128177.png" alt="">
+        <p>Chicken Noodle Soup</p>
+        <p class="price">9</p>
+        <div class="quantity">
+        <button class="decrement">-</button>
+        <input value=0 type="text">
+        <!-- <p class="noodle-counter">0</p> -->
+        <button class="increment">+</button>
+        </div>
+      </div>
+      <div class="food-item">
+          <img src="./assets/担担肉丝面-1024x1024.png" alt="">
+          <p>Beef Noodle Soup</p>
+          <p class="price">13</p>
+          <div class="quantity">
+            <button class="decrement">-</button>
+            <input value=0 type="text">
+            <!-- <p class="secondNoodle-counter">0</p> -->
+            <button class="increment">+</button>
+          </div>
+      </div>
+      <div class="food-item">
+            <img src="./assets/Duck-Noodle-Soup-with-Bamboo-Shoot-2.png.webp" alt="">
+            <p>Chicken & Corn Noodle Soup</p>
+            <p class="price">11</p>
+            <div class="quantity">
+                <button class="decrement">-</button>
+                <input value=0 type="text">
+                <button class="increment">+</button>
+            </div>
+      </div>
+      <div class="food-item">
+          <img src="./assets/rice-noodles-png-12.png" alt="">
+          <p>Won Ton Noodle Soup</p>
+          <p class="price">10</p>
+          <div class="quantity">
+            <button class="decrement">-</button>
+            <input value=0 type="text">
+            <button class="increment">+</button>
+          </div>
+      </div>
+    </div>
+    <p class="order-section-title-dumplings">Dumplings</p>
+    <div class="dumpling-ordering">
+        <div class="food-item">
+          <img src="./assets/PORK-GYOZA-UDON-copy.png" alt="">
+          <p>Goy Chow Gao</p>
+          <p class="price">8</p>
+          <div class="quantity">
+            <button class="decrement">-</button>
+            <input value=0 type="text">
+            <button class="increment">+</button>
+          </div>
+        </div>
+        <div class="food-item">
+            <img src="./assets/c1b03c54bf86238290a17a76d1cf18b9.png" alt="">
+            <p>Siu Mai</p>
+            <p class="price">10</p>
+            <div class="quantity">
+              <button class="decrement">-</button>
+              <input value=0 type="text">
+              <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="food-item">
+              <img src="./assets/dumplings-drawing-dim-sum-19.png" alt="">
+              <p>Xiao Long Bao</p>
+              <p class="price">9</p>
+              <div class="quantity">
+                <button class="decrement">-</button>
+                <input value=0 type="text">
+                <button class="increment">+</button>
+              </div>
+        </div>
+        <div class="food-item">
+            <img src="./assets/main-qimg-db0f97dcab09b733992a41670c299ed9.png" alt="">
+            <p>Jiu Cai Bao</p>
+            <p class="price">7</p>
+            <div class="quantity">
+              <button class="decrement">-</button>
+              <input value=0 type="text">
+              <button class="increment">+</button>
+            </div>
+        </div>
+      </div>
+    <div class="order-total">
+      <div class=order-calculations>
+      <p>Subtotal: $ <span class="subtotal">0</span></p>
+      <p>Taxes: $ <span class="taxes">0</span></p>
+      <p>Total: $ <span class="total">0</span></p>
+      </div>
+      <button class="checkout-button">Checkout</button>
+    </div>
+  </section>
+  <footer>
+      <section id="contact" class=footer-flex>
+      <div class=logo-bottom>
+          <img class=logo-image src="./assets/lighthousewhite.svg" alt="">
+      </div>
+      <div class="footer-box">
+        <p>Address</p>
+        <p>662 King St W Unit 101</p>
+        <p>Toronto, Canada</p>
+      </div>
+      <div class="footer-box">
+        <p>Opening Hours</p>
+        <p>Mon - Fri: 11am - 10pm</p>
+        <p>Sat - Sun: 11am - 12am</p>
+      </div>
+      <div class="footer-box">
+        <p>Contact</p>
+        <p>1-800-NOODLES</p>
+        <p>lighthousenoodles@gmail.com</p>
+      </div>
+      </section>
+    </footer>
+  </body>
+</html>
