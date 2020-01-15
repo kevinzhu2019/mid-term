@@ -4,6 +4,9 @@ require('dotenv').config();
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+const client = require('twilio')(accountSid, authToken);
 const express    = require("express");
 const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
@@ -53,6 +56,26 @@ app.get("/", (req, res) => {
 app.get("/order", (req, res) => {
   res.render("order");
 });
+
+app.post("/order", (req, res) => {
+  // console.log(req)
+  console.log(req.body)
+  let foodNameArray = req.body.orderedItems;
+  let message = "Hello, thank you for your purchase of";
+  foodNameArray.forEach(function(element)  {
+    message = message + " " + req.body[element] + " " + element + ", ";
+  })
+  message += "your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+  // console.log(message)
+
+  client.messages.create({
+    body: message,
+    from: `+13143473160`,
+    to:   `+14168465015`
+  })
+  .then(message => console.log(message.sid));
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
