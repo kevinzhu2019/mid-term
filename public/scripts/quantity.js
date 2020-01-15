@@ -1,6 +1,6 @@
+
 // event handler that counts user input displays
 // how many remaining characters are left to be used
-
 
 $(document).ready(function() {
   $('.quantity .increment').on('click', function() {
@@ -19,7 +19,6 @@ $(document).ready(function() {
   });
 
   $('.quantity .decrement').on('click', function() {
-
     let count = $(this).siblings("input");
     let n = Number(count.val());
     if (n > 0)  {
@@ -45,6 +44,7 @@ $(document).ready(function() {
       price += parseInt($(this).text()) * parseInt($(this).siblings(".quantity").children("input").val());
     })
 
+
     $(".subtotal").text(price);
     $(".taxes").text(price * 0.13)
     $(".total").text(parseInt($(".subtotal").text()) + parseInt($(".taxes").text()))
@@ -52,6 +52,44 @@ $(document).ready(function() {
   })
 
 
-});
+
+  $(".checkout-button").on("click", function(event) {
+    // Now user has clicked sumbit so we need to retrieve values from Cart
+
+    // We need to send those values to the server using Ajax
+    // const formData = $(".subtotal").serialize();
+    const foodObject = {}
+    const foodNameArray = [];
+    $(".food-name").each(function(index)  {
+      if ($(this).siblings(".quantity").children("input").val() > 0)  {
+        foodObject[$(this).text()] = $(this).siblings(".quantity").children("input").val();
+        foodNameArray.push($(this).text());
+      }
+    })
+    console.log(foodNameArray);
+    foodObject["subtotal"] = $(".subtotal").text()
+    foodObject["taxes"] = $(".taxes").text()
+    foodObject["total"] = $(".total").text()
+    foodObject["orderedItems"] = foodNameArray;
+
+    if(parseInt($(".total").text()) > 0)  {
+      $.ajax({
+        url:"http://localhost:8080/order",
+        method: "POST",
+        data: foodObject
+      }).then(() => {
+      })
+    }
+
+  })
+
+
+})
+
+
+
+
+
+
 
 
