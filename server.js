@@ -50,12 +50,24 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let queryString = 'SELECT id, name, price, cook_time FROM lightmenus;';
+  db.query(queryString)
+  .then((result) => {
+    console.log(result.rows);
+    let templateVars = {menuItems: result.rows};
+    res.render("index", templateVars);
+  });
 });
 
 app.get("/order", (req, res) => {
   res.render("order");
 });
+
+
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
 
 app.post("/order", (req, res) => {
   // console.log(req)
