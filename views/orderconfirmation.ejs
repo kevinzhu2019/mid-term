@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+      <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+      <link rel="stylesheet" href="/styles/orderconfirmation.css" type="text/css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,800,900&display=swap" rel="stylesheet">
+    <style>
+       /* Set the size of the div element that contains the map */
+      html, body {
+        margin:0;
+        padding:0;
+      }
+
+      #map {
+        margin:0;
+        padding:0;
+        height: 400px;  /* The height is 400 pixels */
+        width: 100vw;  /* The width is the width of the web page */
+      }
+    </style>
+  </head>
+  <body>
+      <header>
+          <nav>
+              <div>
+                <ul>
+                    <div class="logo-box">
+                        <img class=logo-image src="./assets/lighthouse.svg" alt="">
+                        <p>Lighthouse Noodle Co.</p>
+                    </div>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#menu">Menu</a></li>
+                    <li><a href="Order">Order Now</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+          </nav>
+        </header>
+        <section class="banner">
+            <div class="banner-text">
+            </div>
+        </section>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+
+function initMap() {
+
+  var lighthouseNoodlesLocation = {lat: 43.6440695, lng: -79.4021489};
+
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: lighthouseNoodlesLocation});
+
+  var marker = new google.maps.Marker({position: lighthouseNoodlesLocation, map: map});
+}
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcxNp81FsNx7KV-PVqj9eu0ix0npqZl-U&callback=initMap">
+    </script>
+
+<footer>
+    <section id="contact" class=footer-flex>
+    <div class=logo-bottom>
+        <img class=logo-image src="./assets/lighthousewhite.svg" alt="">
+    </div>
+    <div class="footer-box">
+      <p>Address</p>
+      <p>662 King St W Unit 101</p>
+      <p>Toronto, Canada</p>
+    </div>
+    <div class="footer-box">
+      <p>Opening Hours</p>
+      <p>Mon - Fri: 11am - 10pm</p>
+      <p>Sat - Sun: 11am - 12am</p>
+    </div>
+    <div class="footer-box">
+      <p>Contact</p>
+      <p>1-800-NOODLES</p>
+      <p>lighthousenoodles@gmail.com</p>
+    </div>
+    </section>
+  </footer>
+  </body>
+</html>

@@ -14,7 +14,6 @@
 
 
 
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
@@ -31,7 +30,7 @@
                   <li><a href="#menu">Menu</a></li>
                   <li><a href="/order">Order Now</a></li>
                   <!-- <li><a href="#">Order Now</a></li> -->
-                  <li><a href="/about">About</a></li>
+                  <li><a href="/orderconfirmation">About</a></li>
                   <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
@@ -46,7 +45,7 @@
         <section class="menu">
           <div class="menu-items">
           <p id="menu">Menu</p>
-          <!-- <p>Noodles</p>
+          <p>Noodles</p>
           <p>Chicken Noodle Soup
 
               $9</p>
@@ -71,13 +70,8 @@
               $9</p>
           <p>Jiu Cai Bao
 
-              $7</p> -->
-            <% for (const item of menuItems) { %>
-              <p><%= item.name %>
-
-              $<%= item.price %></p>
-            <% } %>
-          </div>
+              $7</p>
+            </div>
         </section>
         <!-- <img src="./assets/lighthousenoodle.png" alt=""> -->
         <!-- <div class="banner"> -->
