@@ -75,25 +75,12 @@ $(document).ready(function() {
     foodObject["total"] = $(".total").text()
     foodObject["orderedItems"] = foodNameArray;
 
-
-    const foodObject = {}
-    const foodNameArray = [];
-    $(".food-name").each(function(index)  {
-      if ($(this).siblings(".quantity").children("input").val() > 0)  {
-        foodObject[$(this).text()] = $(this).siblings(".quantity").children("input").val();
-        foodNameArray.push($(this).text());
-      }
+    foodNameArray.forEach(function(elements)  {
+      $(".order-details").text($(".order-details").text() + " " + foodObject[elements] + " " + elements + `\n`)
     })
-    console.log(foodNameArray);
-    foodObject["subtotal"] = $(".subtotal").text()
-    foodObject["taxes"] = $(".taxes").text()
-    foodObject["total"] = $(".total").text()
-    foodObject["orderedItems"] = foodNameArray;
-
 
 
     // $(".order-details").text($(".order-details").text() + " " + $(this).siblings("input").val() + " " + $(this).parent().siblings(".food-name").text())
-
   })
 
   $(".confirm").on("click", function(event) {
