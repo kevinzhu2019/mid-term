@@ -128,6 +128,22 @@ section.order-food-interface {
   opacity: 95%;
 }
 
+.modal-contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  font-size: 15px;
+}
+
+.modal-contact input {
+  width: 31%;
+}
+
+.modal-contact p {
+  margin-top: 15px;
+}
 
 .order-section-title-dumplings {
   font-family: 'Montserrat', sans-serif;
