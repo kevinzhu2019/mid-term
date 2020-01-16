@@ -57,6 +57,11 @@ app.get("/order", (req, res) => {
   res.render("order");
 });
 
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
+
 app.post("/order", (req, res) => {
   // console.log(req)
   console.log(req.body)
@@ -79,16 +84,17 @@ app.post("/order", (req, res) => {
   client.messages.create({
     body: customerMessage,
     from: `+12299992650`,
-    to:   `+14168465015`
+    to:   `+16477219688`
   })
   .then(message => console.log(message.sid));
 
   client.messages.create({
     body: restaurantMessage,
     from: `+12299992650`,
-    to:   `+14166487618`
+    to:   `+14168465015`
   })
   .then(message => console.log(message.sid));
+
 
 });
 
