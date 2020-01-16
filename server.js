@@ -61,22 +61,30 @@ app.post("/order", (req, res) => {
   // console.log(req)
   console.log(req.body)
   let foodNameArray = req.body.orderedItems;
-  let message = `Hello ${req.body.name}, thank you for your purchase of`;
+  let customerMessage = `Hello ${req.body.name}, thank you for your purchase of`;
   foodNameArray.forEach(function(element)  {
-    message = message + " " + req.body[element] + " " + element + ",";
+    customerMessage = customerMessage + " " + req.body[element] + " " + element + ",";
   })
-  message += " your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
-  console.log(message)
+  customerMessage += " your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+
+  let restaurantMessage = `Hello, a customer named ${req.body.name} with the phone number ${req.body.phone} has just made the following purcase of`;
+  foodNameArray.forEach(function(element)  {
+    restaurantMessage = restaurantMessage  + " " + req.body[element] + " " + element + ",";
+  })
+  restaurantMessage += " order subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+
+  console.log(customerMessage)
+  console.log(restaurantMessage)
   console.log("works")
   client.messages.create({
-    body: message,
+    body: customerMessage,
     from: `+12299992650`,
     to:   `+14168465015`
   })
   .then(message => console.log(message.sid));
 
   client.messages.create({
-    body: message,
+    body: restaurantMessage,
     from: `+12299992650`,
     to:   `+14166487618`
   })

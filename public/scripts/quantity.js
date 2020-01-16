@@ -82,16 +82,6 @@ $(document).ready(function() {
     $(".modal-taxes").text(foodObject["taxes"])
     $(".modal-total").text(foodObject["total"])
 
-    if(parseInt($(".total").text()) > 0)  {
-      $.ajax({
-        url:"http://localhost:8080/order",
-        method: "POST",
-        data: foodObject
-      }).then(() => {
-      })
-    }
-
-
   })
 
   $(".close").on("click", function(event) {
