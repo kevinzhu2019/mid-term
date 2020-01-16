@@ -50,42 +50,38 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  let queryString = 'SELECT id, name, price, cook_time FROM lightmenus;';
-  db.query(queryString)
-  .then((result) => {
-    console.log(result.rows);
-    let templateVars = {menuItems: result.rows};
-    res.render("index", templateVars);
-  });
+  res.render("index");
 });
 
 app.get("/order", (req, res) => {
   res.render("order");
 });
 
-
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
-
 app.post("/order", (req, res) => {
   // console.log(req)
   console.log(req.body)
   let foodNameArray = req.body.orderedItems;
-  let message = "Hello, thank you for your purchase of";
+  let message = `Hello ${req.body.name}, thank you for your purchase of`;
   foodNameArray.forEach(function(element)  {
-    message = message + " " + req.body[element] + " " + element + ", ";
+    message = message + " " + req.body[element] + " " + element + ",";
   })
-  message += "your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
-  // console.log(message)
-
+  message += " your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+  console.log(message)
+  console.log("works")
   client.messages.create({
     body: message,
-    from: `+13143473160`,
+    from: `+12299992650`,
     to:   `+14168465015`
   })
   .then(message => console.log(message.sid));
+
+  client.messages.create({
+    body: message,
+    from: `+12299992650`,
+    to:   `+14166487618`
+  })
+  .then(message => console.log(message.sid));
+
 });
 
 

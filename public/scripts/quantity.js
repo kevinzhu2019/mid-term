@@ -78,6 +78,19 @@ $(document).ready(function() {
     foodNameArray.forEach(function(elements)  {
       $(".order-details").text($(".order-details").text() + " " + foodObject[elements] + " " + elements + " / ")
     })
+    $(".modal-subtotal").text(foodObject["subtotal"]);
+    $(".modal-taxes").text(foodObject["taxes"])
+    $(".modal-total").text(foodObject["total"])
+
+    if(parseInt($(".total").text()) > 0)  {
+      $.ajax({
+        url:"http://localhost:8080/order",
+        method: "POST",
+        data: foodObject
+      }).then(() => {
+      })
+    }
+
 
   })
 
@@ -102,8 +115,8 @@ $(document).ready(function() {
     foodObject["taxes"] = $(".taxes").text()
     foodObject["total"] = $(".total").text()
     foodObject["orderedItems"] = foodNameArray;
-
-
+    foodObject["name"] = $(".name").val()
+    foodObject["phone"] = $(".phone").val()
 
     if(parseInt($(".total").text()) > 0)  {
       $.ajax({
