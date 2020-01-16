@@ -134,7 +134,7 @@ section.order-food-interface {
   justify-content: space-around;
   align-items: center;
   height: 30px;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .modal-contact input {
@@ -143,6 +143,16 @@ section.order-food-interface {
 
 .modal-contact p {
   margin-top: 15px;
+}
+
+.modal-body {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.popup-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 .order-section-title-dumplings {

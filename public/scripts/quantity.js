@@ -76,12 +76,16 @@ $(document).ready(function() {
     foodObject["orderedItems"] = foodNameArray;
 
     foodNameArray.forEach(function(elements)  {
-      $(".order-details").text($(".order-details").text() + " " + foodObject[elements] + " " + elements + `\n`)
+      $(".order-details").text($(".order-details").text() + " " + foodObject[elements] + " " + elements + " / ")
     })
 
-
-    // $(".order-details").text($(".order-details").text() + " " + $(this).siblings("input").val() + " " + $(this).parent().siblings(".food-name").text())
   })
+
+  $(".close").on("click", function(event) {
+    $(".order-details").text("")
+  })
+
+
 
   $(".confirm").on("click", function(event) {
 
