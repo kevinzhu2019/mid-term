@@ -62,8 +62,6 @@ const transport = nodemailer.createTransport({
   })
 });
 
-
-
 // Home page
 app.get("/", (req, res) => {
   let queryString = 'SELECT id, name, price, cook_time FROM lightmenus;';
@@ -80,36 +78,16 @@ app.get("/order", (req, res) => {
   res.render("order");
 });
 
-<<<<<<< HEAD
 //route to contact
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
 // route to about page
-=======
->>>>>>> master
 app.get("/about", (req, res) => {
   res.render("about");
 });
 
-<<<<<<< HEAD
-//send message to Twilio
-app.post("/order", (req, res) => {
-  let foodNameArray = req.body.orderedItems;
-  let message = "Hello, thank you for your purchase of";
-  foodNameArray.forEach(function(element)  {
-    message = message + " " + req.body[element] + " " + element + ", ";
-  })
-  message += "your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
-
-  client.messages.create({
-    body: `${message}`,
-    from: `+16476943212`,
-    to:   `+16477465908`
-  })
-  .then(message => console.log(message.sid));
-=======
 app.post("/order", (req, res) => {
   // console.log(req)
   // console.log(req.body)
@@ -166,7 +144,6 @@ app.post("/order", (req, res) => {
     });
   }
   cookingTime(queryString, queryParam);
->>>>>>> master
 });
 
 app.listen(PORT, () => {
