@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $('.taxes').text(Math.round($('.subtotal').text() * 0.13 * 100) / 100);
 
-    $('.total').text(parseInt($('.subtotal').text()) + parseInt($('.taxes').text()))
+    $('.total').text(parseInt($('.subtotal').text()) + (Math.round($('.subtotal').text() * 0.13 * 100) / 100))
 
     //need to create an object to populate the popup box WARNING WARNING WARNING
 
@@ -31,9 +31,9 @@ $(document).ready(function() {
 
     $('.subtotal').text(parseInt($('.subtotal').text()) - parseInt($(this).parent().siblings(".price").text()));
 
-    $('.taxes').text(Math.round($('.subtotal').text()*0.13 * 100) / 100);
+    $('.taxes').text(Math.round($('.subtotal').text() * 0.13 * 100) / 100);
 
-    $('.total').text(parseInt($('.subtotal').text()) + parseInt($('.taxes').text()))
+    $('.total').text(parseInt($('.subtotal').text()) + (Math.round($('.subtotal').text() * 0.13 * 100) / 100))
   }
 
   });
