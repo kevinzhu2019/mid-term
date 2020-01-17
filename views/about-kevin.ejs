@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About Us</title>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/about.css" type="text/css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="/order">Order Now</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="text-area">
+    <div class="text-wrap">
+      <h1>About Our Story...</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ipsum consectetur, ducimus nam quis recusandae alias sequi, incidunt obcaecati accusantium numquam repellat consequuntur quasi beatae dolore necessitatibus tempora cum sint. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum a consequuntur id quisquam nam eius eos maxime nostrum sit exercitationem? </p>
+    </div>
+    <div class="text-wrap">
+      <h1>About Our Business...</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque ratione optio vel praesentium debitis et assumenda dignissimos corrupti fugit saepe sit omnis labore voluptatem, tempore velit, ipsum dicta quibusdam quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    </div>
+    <div class="text-wrap">
+      <h1>About Our Anythin...</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, repudiandae ad at dolore exercitationem quas laboriosam perspiciatis accusantium aperiam ipsum libero incidunt commodi delectus aliquid, aut necessitatibus nisi! Aperiam, quisquam. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script><!--this should be put behind Jquery-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
+
+	<script>
+		$(function () {
+			$('.text-area').flickity({
+				wrapAround: true //there is no ";".
+			});
+			$('a').smoothScroll({
+				offset: 100
+			});
+		});
+	</script>
+
+</body>
+</html>

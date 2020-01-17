@@ -16,6 +16,9 @@ $(document).ready(function() {
     $('.taxes').text(Math.round($('.subtotal').text() * 0.13 * 100) / 100);
 
     $('.total').text(parseInt($('.subtotal').text()) + parseInt($('.taxes').text()))
+
+    //need to create an object to populate the popup box WARNING WARNING WARNING
+
   });
 
   $('.quantity .decrement').on('click', function() {
@@ -48,7 +51,6 @@ $(document).ready(function() {
     $(".subtotal").text(price);
     $(".taxes").text(price * 0.13)
     $(".total").text(parseInt($(".subtotal").text()) + parseInt($(".taxes").text()))
-
   })
 
 
@@ -58,6 +60,7 @@ $(document).ready(function() {
 
     // We need to send those values to the server using Ajax
     // const formData = $(".subtotal").serialize();
+
     const foodObject = {}
     const foodNameArray = [];
     $(".food-name").each(function(index)  {
@@ -72,6 +75,39 @@ $(document).ready(function() {
     foodObject["total"] = $(".total").text()
     foodObject["orderedItems"] = foodNameArray;
 
+    foodNameArray.forEach(function(elements)  {
+      $(".order-details").text($(".order-details").text() + " " + foodObject[elements] + " " + elements + " / ")
+    })
+    $(".modal-subtotal").text(foodObject["subtotal"]);
+    $(".modal-taxes").text(foodObject["taxes"])
+    $(".modal-total").text(foodObject["total"])
+
+  })
+
+  $(".close").on("click", function(event) {
+    $(".order-details").text("")
+  })
+
+
+
+  $(".confirm").on("click", function(event) {
+
+    const foodObject = {}
+    const foodNameArray = [];
+    $(".food-name").each(function(index)  {
+      if ($(this).siblings(".quantity").children("input").val() > 0)  {
+        foodObject[$(this).text()] = $(this).siblings(".quantity").children("input").val();
+        foodNameArray.push($(this).text());
+      }
+    })
+    console.log(foodNameArray);
+    foodObject["subtotal"] = $(".subtotal").text()
+    foodObject["taxes"] = $(".taxes").text()
+    foodObject["total"] = $(".total").text()
+    foodObject["orderedItems"] = foodNameArray;
+    foodObject["name"] = $(".name").val()
+    foodObject["phone"] = $(".phone").val()
+
     if(parseInt($(".total").text()) > 0)  {
       $.ajax({
         url:"http://localhost:8080/order",
@@ -82,7 +118,6 @@ $(document).ready(function() {
     }
 
   })
-
 
 })
 
