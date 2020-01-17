@@ -38,17 +38,42 @@
                     <li><a href="/#menu">Menu</a></li>
                     <li><a href="/order">Order Now</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
               </div>
           </nav>
         </header>
         <section class="banner">
-            <div class="banner-text">
-            <p>Our Story Begins In The East</p>
-            <p>Toronto's Most Acclaimed Asian Restaurant</p>
+            <div class="slide-area">
+              <div class="banner-text">
+                <h1>Our Story Begins In The East...</h1>
+                <p>Our food is made from the thousands of combined flavours cultures across Asia. Using the lessons learned from Chinese, Korean and Japanese cuisine. </p>
+              </div>
+              <div class="banner-text">
+                <h1>Long Long Ago...</h1>
+                <p>Founded four generations ago, the family tradition has descended through the ages.</p>
+              </div>
+              <div class="banner-text">
+                <h1>In A Small Humble Seaside Village</h1>
+                <p>It all began when a hardworking lighthouse attendant wanted to make delicious noodles for his young daughter.</p>
+              </div>
             </div>
-        </section>
+          </section>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+          <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+          <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+          <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script><!--this should be put behind Jquery-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
+          <script>
+            $(function () {
+              $('.slide-area').flickity({
+                wrapAround: true //there is no ";".
+              });
+              $('a').smoothScroll({
+                offset: 100
+              });
+            });
+          </script>
     <!--The div element for the map -->
     <div id="map"></div>
     <script>

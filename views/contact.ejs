@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Basic styling for the page -->
+  <link rel="stylesheet" href="/styles/layout.css">
+<!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,800,900&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<!-- style formating for the form, including rounded hamburger fields, embedded -->
+  <link rel="stylesheet" type="text/css" href="/styles/contact_util.css">
+  <link rel="stylesheet" type="text/css" href="/styles/contact_main.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+
+  <title>Lighthouse Noodle Co.</title>
+</head>
+<body>
+  <header>
+    <nav>
+        <div>
+          <ul>
+              <div style="z-index:10;" class="logo-box">
+                  <img class=logo-image src="./assets/lighthouse.svg" alt="">
+                  <p style="font-size: 16px; line-height: 25px;">Lighthouse Noodle Co.</p>
+              </div>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#menu">Menu</a></li>
+              <li><a href="/order">Order Now</a></li>
+              <!-- <li><a href="#">Order Now</a></li> -->
+              <li><a href="/about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+    </nav>
+  </header>
+  <section class="contact">
+    <div class="contact_form">
+
+  <div class="container-contact100">
+
+    <div class="wrap-contact100">
+      <form method="POST" action="/messages" class="contact100-form validate-form">
+        <span class="contact100-form-title">
+          Send Us A Message
+        </span>
+
+        <div class="wrap-input100 validate-input" data-validate="Please enter your name">
+          <input class="input100" type="text" name="name" placeholder="Full Name">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Please enter your email: e@a.x">
+          <input class="input100" type="text" name="email" placeholder="E-mail">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Please enter the subject">
+          <input class="input100" type="text" name="subject" placeholder="Subject">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+          <textarea class="input100" name="message" placeholder="Your Message"></textarea>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn">
+            <span>
+              <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+              Send
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="dropDownSelect1"></div>
+      </div>
+  </section>
+  <!-- <img src="./assets/lighthousenoodle.png" alt=""> -->
+  <!-- <div class="banner"> -->
+  </div>
+
+  <footer>
+    <section class=footer-flex>
+    <div class=logo-bottom>
+        <img class=logo-image src="./assets/lighthousewhite.svg" alt="">
+    </div>
+    <div class="footer-box">
+      <p>Address</p>
+      <p>662 King St W Unit 101</p>
+      <p>Toronto, Canada</p>
+    </div>
+    <div class="footer-box">
+      <p>Opening Hours</p>
+      <p>Mon - Fri: 11am - 10pm</p>
+      <p>Sat - Sun: 11am - 12am</p>
+    </div>
+    <div class="footer-box">
+      <p>Contact</p>
+      <p>1-800-NOODLES</p>
+      <p>lighthousenoodles@gmail.com</p>
+    </div>
+    </section>
+  </footer>
+
+</body>
+</html>
+

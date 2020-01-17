@@ -12,6 +12,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const nodemailer = require("nodemailer")
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -46,6 +47,36 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
+const transport = nodemailer.createTransport({
+  host: 'smtp.mailtrap.io',
+  port: 2525,
+  auth: {
+     user: '64a8a2cb2a86f1',
+     pass: 'ba3d08d50f5b68'
+  }
+  });
+
+  app.post("/messages", (req, res) => {
+    // console.log(req.body)
+  const message = {
+      from: req.body.email,
+      to: `lighthousenoodles@email.com`,
+      subject: req.body.subject,
+      text: req.body.message
+      };
+    transport.sendMail(message, function(err, info) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(info);
+      }
+    res.render("contact");
+  })
+});
+
+
+
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -61,6 +92,10 @@ app.get("/", (req, res) => {
 
 app.get("/order", (req, res) => {
   res.render("order");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact");
 });
 
 app.get("/about", (req, res) => {
@@ -106,18 +141,18 @@ app.post("/order", (req, res) => {
 
       console.log(customerMessage)
       console.log(restaurantMessage)
-      console.log("works")
+
       client.messages.create({
         body: customerMessage,
         from: `+12299992650`,
-        to:   `+14168465015`
+        to:   `+16477219688`
       })
       .then(message => console.log(message.sid));
 
       client.messages.create({
         body: restaurantMessage,
         from: `+12299992650`,
-        to:   `+14166487618`
+        to:   `+14168465015`
       })
       .then(message => console.log(message.sid));
     });
