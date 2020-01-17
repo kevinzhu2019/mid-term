@@ -50,7 +50,13 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let queryString = 'SELECT id, name, price, cook_time FROM lightmenus;';
+  db.query(queryString)
+  .then((result) => {
+    console.log(result.rows);
+    let templateVars = {menuItems: result.rows};
+    res.render("index", templateVars);
+  });
 });
 
 app.get("/order", (req, res) => {
@@ -61,41 +67,62 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-
 app.post("/order", (req, res) => {
   // console.log(req)
-  console.log(req.body)
+  // console.log(req.body)
   let foodNameArray = req.body.orderedItems;
-  let customerMessage = `Hello ${req.body.name}, thank you for your purchase of`;
-  foodNameArray.forEach(function(element)  {
-    customerMessage = customerMessage + " " + req.body[element] + " " + element + ",";
-  })
-  customerMessage += " your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+  console.log(foodNameArray);
 
-  let restaurantMessage = `Hello, a customer named ${req.body.name} with the phone number ${req.body.phone} has just made the following purcase of`;
-  foodNameArray.forEach(function(element)  {
-    restaurantMessage = restaurantMessage  + " " + req.body[element] + " " + element + ",";
-  })
-  restaurantMessage += " order subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
+  //below code is to fetch the total cooking time
+  let queryParam = '';
+  for (const item of foodNameArray) {
+    queryParam = queryParam + '\'' + item + '\'' + ','
+  }
+  queryParam = queryParam.slice(0, -1);
+  let queryString = `SELECT sum(cook_time) FROM lightmenus WHERE name in(${queryParam})`;
+  const cookingTime = function(passingQuery) {
+    db.query(passingQuery)
+    .then((result) => {
+      console.log(result.rows);
+      let cookingTimeValue = result.rows[0].sum;
+      console.log(cookingTimeValue);
 
-  console.log(customerMessage)
-  console.log(restaurantMessage)
-  console.log("works")
-  client.messages.create({
-    body: customerMessage,
-    from: `+12299992650`,
-    to:   `+16477219688`
-  })
-  .then(message => console.log(message.sid));
+      //below code is Kalvin's API call, has to move into .then function to use "cookingTimeValue" variable
+      let customerMessage = `Hello ${req.body.name}, thank you for your purchase of`;
+      foodNameArray.forEach(function(element)  {
+        customerMessage = customerMessage + " " + req.body[element] + " " + element + ",";
+      })
+      customerMessage += " your subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
 
-  client.messages.create({
-    body: restaurantMessage,
-    from: `+12299992650`,
-    to:   `+14168465015`
-  })
-  .then(message => console.log(message.sid));
+      customerMessage += ` Please come and pick up your order in ${cookingTimeValue} minutes.`
 
+      let restaurantMessage = `Hello, a customer named ${req.body.name} with the phone number ${req.body.phone} has just made the following purcase of`;
+      foodNameArray.forEach(function(element)  {
+        restaurantMessage = restaurantMessage  + " " + req.body[element] + " " + element + ",";
+      })
+      restaurantMessage += " order subtotal is $" + req.body.subtotal + " with taxes of $" + req.body.taxes + " adding up to a total of $" + req.body.total + "."
 
+      restaurantMessage += ` Customer will come and take their orders in ${cookingTimeValue} minutes`;
+
+      console.log(customerMessage)
+      console.log(restaurantMessage)
+      console.log("works")
+      client.messages.create({
+        body: customerMessage,
+        from: `+12299992650`,
+        to:   `+14168465015`
+      })
+      .then(message => console.log(message.sid));
+
+      client.messages.create({
+        body: restaurantMessage,
+        from: `+12299992650`,
+        to:   `+14166487618`
+      })
+      .then(message => console.log(message.sid));
+    });
+  }
+  cookingTime(queryString, queryParam);
 });
 
 

@@ -12,22 +12,30 @@ html {
 
 
 .banner {
-  height: 110vh;
+  height: 94vh;
   width: 100vw;
+  left: 35px;
   // background-attachment: fixed;
-  background-image: url("../assets/ezgif-1-744d8488ca46.jpg");
+  background-image: url("../assets/1e47b2_2893165ba1294ec0bbd7eb41a0f5f6b9.jpg");
   background-size: cover;
-  background-position-y: -100px;
+  // background-position-y: -100px;
+
 }
 
 .banner .banner-text {
   width: 100%;
-  text-align: center;
+  display:flex;
+  flex-direction:column;
+  // justify-content: flex-end;
+  align-items: flex-end;
+  text-align: left;
   position: relative;
   top: 100px;
 }
 
 .banner-text {
+  width: 35%;
+  right: 110px;
   font-size: 15px;
   letter-spacing: 2px;
   font-family: 'Raleway', sans-serif;
@@ -35,7 +43,12 @@ html {
   color: #FFFFFF;
 }
 
+.banner-text p {
+  width: 30%;
+}
+
 .banner-text p:first-child {
+  width: 30%;
   margin: 0;
   font-size: 60px;
   letter-spacing: 2px;
