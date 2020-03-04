@@ -1,5 +1,10 @@
 # Restaraunt Ordering Web App
 
+![Front Page](https://github.com/kevinzhu2019/mid-term/blob/master/public/assets/Screen%20Shot%202020-03-05%20at%207.52.21%20AM.png?raw=true)
+![Front Page Bottom](https://github.com/kevinzhu2019/mid-term/blob/master/public/assets/Screen%20Shot%202020-03-05%20at%207.52.34%20AM.png?raw=true)
+![Ordering Page](https://github.com/kevinzhu2019/mid-term/blob/master/public/assets/Screen%20Shot%202020-03-05%20at%207.55.57%20AM.png?raw=true)
+![Google Maps](https://github.com/kevinzhu2019/mid-term/blob/master/public/assets/Screen%20Shot%202020-03-05%20at%207.54.39%20AM.png?raw=true)
+
 ## Getting Started
 1. On your vagrant virtual machine connect to the postgres server by entering the following into terminal:
 
