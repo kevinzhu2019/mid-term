@@ -3,14 +3,55 @@ html {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
 }
 
 .logo-image {
   width: 75px;
 }
 
+.banner {
+  height: 94vh;
+  width: 100vw;
+  background-image: url("../assets/1e47b2_2893165ba1294ec0bbd7eb41a0f5f6b9.jpg");
+  background-size: cover;
+}
+
+.banner .slide-area {
+  top: 130px;
+  width: 50%;
+  left: 43vw;
+  height: 50vh;
+  padding: 80px;
+  position: absolute;
+}
+
+.banner .banner-text {
+  width: 85%;
+  padding: 0 70px;
+  text-align: center;
+  position: absolute;
+}
+
+.banner-text {
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.banner-text p:first-child {
+  margin: 0;
+  font-size: 60px;
+  letter-spacing: 2px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
 .logo-box {
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -22,18 +63,6 @@ html {
   background: #FCF3D7;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  justify-content: center;
-  background-image: url(../assets/ezgif-6-5db46fc4dd66.jpg);
-  background-size: contain;
-}
-
 header {
   width: 100%;
   padding: 0;
@@ -41,7 +70,7 @@ header {
 }
 
 nav {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   background-color: #7D1917;
   text-align: center;
   vertical-align: middle;
@@ -82,17 +111,22 @@ nav ul li a:hover {
   color: rgba(255, 255, 255, 0.829);
 }
 
-.text-area {
-  width: 50%;
-  margin-top: 60px;
-  margin-right: 10%;
-  margin-left: auto;
-  /* border: 1px solid yellow; */
-  padding: 60px;
-  padding-top: 20px;
-  color: white;
+footer {
+  font-family: 'Montserrat', sans-serif;
+  height: 20vh;
+  background-color: #7D1917;
 }
 
-.text-wrap {
-  width: 100%;
+.footer-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  height: 100%;
+}
+
+.footer-box {
+  overflow-wrap: break-word;
+  line-height: 15px;
+  width: 25vw;
 }
